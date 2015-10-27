@@ -9,6 +9,7 @@ namespace CheckLowRate
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
