@@ -9,26 +9,29 @@ namespace Payroll
     {
         static void Main(string[] args)
         {
-            int gradePoint;
-            Console.Write("Please enter you grade point average");
-            gradePoint = Convert.ToInt32(Console.ReadLine());
+            double hourlypayrate;
+            Console.Write("Please enter you hourly pay rate: ");
+            hourlypayrate = Convert.ToDouble(Console.ReadLine());
 
-            int testScore;
-            Console.Write("Please enter your test score");
-            testScore = Convert.ToInt32(Console.ReadLine());
+            int hoursworked;
+            Console.Write("Please enter your hours worked: ");
+            hoursworked = Convert.ToInt32(Console.ReadLine());
 
-            if (gradePoint >= 3.0)
+            double grosspay = hourlypayrate * hoursworked;
+            double Tax = 0;
+
+            if (grosspay <= 300.00)
             {
-                if (testScore >= 60)
-                    Console.WriteLine("Accepted");
-                else Console.WriteLine("Reject");
+                Tax = .10;
             }
-            if (gradePoint < 3)
+            else if (grosspay >= 300.01)
             {
-                if (testScore >= 80)
-                    Console.WriteLine("Accepted");
-                else Console.WriteLine("Reject");
+                Tax = .12;
+            }
+            double total = grosspay - (grosspay * Tax);
+            Console.WriteLine("Total: {0}", total.ToString("C"));
+           
             }
         }
     }
-}
+

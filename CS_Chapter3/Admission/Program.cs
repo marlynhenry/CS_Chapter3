@@ -9,27 +9,26 @@ namespace Admission
     {
         static void Main(string[] args)
         {
-            double hourlypayrate;
-            Console.Write("Please enter you hourly pay rate: ");
-            hourlypayrate = Convert.ToDouble(Console.ReadLine());
+            int gradePoint;
+            Console.Write("Please enter you grade point average");
+            gradePoint = Convert.ToInt32(Console.ReadLine());
 
-            int hoursworked;
-            Console.Write("Please enter your hours worked: ");
-                hoursworked = Convert.ToInt32(Console.ReadLine());
+            int testScore;
+            Console.Write("Please enter your test score");
+            testScore = Convert.ToInt32(Console.ReadLine());
 
-            double grosspay = hourlypayrate * hoursworked;
-            double Tax = 0;
-
-            if(grosspay <= 300.00)
+            if (gradePoint >= 3.0)
             {
-                Tax = .10;
+                if (testScore >= 60)
+                    Console.WriteLine("Accepted");
+                else Console.WriteLine("Reject");
             }
-            else if (grosspay >= 300.01)
+            if (gradePoint < 3)
             {
-                Tax = .12;
+                if (testScore >= 80)
+                    Console.WriteLine("Accepted");
+                else Console.WriteLine("Reject");
             }
-            double total = grosspay -(grosspay * Tax);
-            Console.WriteLine("Total: {0}", total.ToString("C"));
-        }
+        }     
     }
 }
